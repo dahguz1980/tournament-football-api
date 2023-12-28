@@ -1,0 +1,10 @@
+{
+    "apps" : [{
+      "name"        : "TOURNAMENT-FOOTBALL-API",
+      "script"      : "./app.js",
+      "instances"   : 1,
+      "env": {
+        "PORT"      : "3003"
+      }
+    }]
+  }
