@@ -27,11 +27,16 @@ app.use(function (req, res, next) {
 
 app.use('/ft/api/tournaments/', tournaments)
 
+app.get('/.well-known/pki-validation/636FF421610EAAD646E725246E943F0A.txt', function (req, res) {
+  res.render('/.well-known/pki-validation/636FF421610EAAD646E725246E943F0A.txt');
+});
+
+
 
 var https_options = {
-    key: fs.readFileSync("ssl/private.key"),
-    cert: fs.readFileSync("ssl/certificate.crt"),
-    ca: fs.readFileSync('ssl/ca_bundle.crt') 
+    key: fs.readFileSync("ssl/domain.key"),
+    cert: fs.readFileSync("ssl/129_146_176_182.crt"),
+    ca: fs.readFileSync('ssl/My_CA_Bundle.ca-bundle') 
          
 };
 

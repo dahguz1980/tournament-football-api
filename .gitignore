@@ -1,2 +1,4 @@
-./node_modules
-.package-lock.json
+package-lock.json
+well-known/
+636FF421610EAAD646E725246E943F0A.txt
+node_modules/
