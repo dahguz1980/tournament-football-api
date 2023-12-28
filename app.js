@@ -1,5 +1,7 @@
 const express = require('express');
 const tournaments = require('./routes/tournament.route')
+var https = require('https');
+var fs = require('fs');
 const app = express();
 const port = 3000
 
@@ -25,6 +27,16 @@ app.use(function (req, res, next) {
 
 app.use('/ft/api/tournaments/', tournaments)
 
-app.listen(port, () => {
+
+var https_options = {
+    key: fs.readFileSync("ssl/private.key"),
+    cert: fs.readFileSync("ssl/certificate.crt"),
+    ca: fs.readFileSync('ssl/ca_bundle.crt') 
+         
+};
+
+https.createServer(https_options,app).listen(port);
+
+/*app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
-});
+});*/
